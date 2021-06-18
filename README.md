@@ -1,4 +1,4 @@
-I. Building, Installing, and Using SBPL
+# Building, Installing, and Using SBPL
 
 SBPL is available as a standalone software library. SBPL itself has no dependencies other than the C/C++ standard library.
 
@@ -44,54 +44,53 @@ Versions of ROS older than Fuerte may contain packages that depend on a ROS pack
         ```target_link_libraries(your-binary-here ${SBPL_LIBRARIES})```
 
 
-II. Usage
-    - Examples for how to use SBPL are in src/test/main.cpp.  Please follow the examples carefully. The library contains a number of planning problem examples, stored as ascii files.  These files (with extension .cfg) should be passed in as arguments into the main function in main.cpp. The files can be found in env_examples directory.
+# Usage
+- Examples for how to use SBPL are in src/test/main.cpp.  Please follow the examples carefully. The library contains a number of planning problem examples, stored as ascii files.  These files (with extension .cfg) should be passed in as arguments into the main function in main.cpp. The files can be found in env_examples directory.
 
-    - Command-line usage for the test_sbpl program can be viewed by passing '-h' as argument to the executable.
+- Command-line usage for the test_sbpl program can be viewed by passing '-h' as argument to the executable.
 
-    - Examples:
-        - The following can be run from the directory containing test_sbpl, which we assume is a build directory in the root of this project.
+- Examples:
+    - The following can be run from the directory containing test_sbpl, which we assume is a build directory in the root of this project.
 
-            ```
-            $ ./test_sbpl ../env_examples/nav3d/env1.cfg
-            Environment: xytheta; Planner: arastar; Search direction: backward
-            Initializing ARAPlanner...
-            start planning...
-            done planning
-            size of solution=16
-            solution size=0
-            Solution is found
+        ```
+        $ ./test_sbpl ../env_examples/nav3d/env1.cfg
+        Environment: xytheta; Planner: arastar; Search direction: backward
+        Initializing ARAPlanner...
+        start planning...
+        done planning
+        size of solution=16
+        solution size=0
+        Solution is found
 
-            $ ./test_sbpl --env=2d ../env_examples/nav2d/env1.cfg #2d is needed here in order to use 2d config
-            Environment: 2d; Planner: arastar; Search direction: backward
-            Initializing ARAPlanner...
-            start planning...
-            done planning
-            size of solution=22
-            Solution is found
+        $ ./test_sbpl --env=2d ../env_examples/nav2d/env1.cfg #2d is needed here in order to use 2d config
+        Environment: 2d; Planner: arastar; Search direction: backward
+        Initializing ARAPlanner...
+        start planning...
+        done planning
+        size of solution=22
+        Solution is found
 
-            $ ./test_sbpl --env=robarm --search-dir=forward --planner=rstar ../env_examples/robarm/env1_6d.cfg
-            Environment: robarm; Planner: rstar; Search direction: forward
-            Initializing RSTARPlanner...
-            start planning...
-            done planning
-            size of solution=44
-            Solution is found
-            ```
+        $ ./test_sbpl --env=robarm --search-dir=forward --planner=rstar ../env_examples/robarm/env1_6d.cfg
+        Environment: robarm; Planner: rstar; Search direction: forward
+        Initializing RSTARPlanner...
+        start planning...
+        done planning
+        size of solution=44
+        Solution is found
+        ```
 
 
-    - Motion primitives files can be found in sbpl/matlab/mprim directory.
+- Motion primitives files can be found in sbpl/matlab/mprim directory.
 
-    - Finally, few visualization scripts can be found in sbpl/matlab/visualization. In particular, plot_3Dpath.m function can be used to visualize the path found by xytheta lattice planner. This functions takes in .cfg file that specified environment and sol.txt file that was generated within main.cpp by xythetalattice planners.
+- Finally, few visualization scripts can be found in sbpl/matlab/visualization. In particular, plot_3Dpath.m function can be used to visualize the path found by xytheta lattice planner. This functions takes in .cfg file that specified environment and sol.txt file that was generated within main.cpp by xythetalattice planners.
 
-    - Note: If you compile the library with the ROS symbol defined, all text output will be redirected to ROS logging constructions. Without the ROS symbol defined, SBPL will print messages to stdout and test_sbpl will generate a solution file, sol.txt, as well as a debugging information file, debug.txt
+- Note: If you compile the library with the ROS symbol defined, all text output will be redirected to ROS logging constructions. Without the ROS symbol defined, SBPL will print messages to stdout and test_sbpl will generate a solution file, sol.txt, as well as a debugging information file, debug.txt
 
-III. Links
+# Links
+- These instructions and more tutorials can be found at www.sbpl.net
 
-    - These instructions and more tutorials can be found at www.sbpl.net
+- For more information and documentation on SBPL visit:
+    http://www.ros.org/wiki/sbpl
 
-    - For more information and documentation on SBPL visit:
-        http://www.ros.org/wiki/sbpl
-
-    - For more information and documentation on using the x,y,theta environment available in ROS visit:
-        http://www.ros.org/wiki/sbpl_lattice_planner
+- For more information and documentation on using the x,y,theta environment available in ROS visit:
+    http://www.ros.org/wiki/sbpl_lattice_planner
